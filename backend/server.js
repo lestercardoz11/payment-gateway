@@ -1,13 +1,24 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
+const mongoose = require('mongoose');
 
-app.use(bodyParser.urlencoded({ extended: true }));
+require('dotenv').config();
+const source = process.env.DB_URL;
 
-app.listen(3000, function () {
-  console.log('listening on 3000');
+mongoose.connect(source, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log('DB connected.');
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
+const app = express();
+app.use(express.json());
+
+const paymentRoute = require('./routes/paymentRoute');
+app.use('/payments', paymentRoute);
+
+app.listen(5000, function () {
+  console.log('listening on 5000');
 });

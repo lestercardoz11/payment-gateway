@@ -64,8 +64,12 @@ The following functional features have been implemented,
    ```
 
 3. Copy env file
+   
    Please note, you can also add your own mongo url
-   `sh cp .env.example .env `
+   
+   ```sh 
+   cp .env.example .env
+   ```
 
 4. Start the development server
 

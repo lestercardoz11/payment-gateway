@@ -16,6 +16,13 @@ connection.once('open', () => {
 const app = express();
 app.use(express.json());
 
+const cors = require('cors');
+app.use(
+  cors({
+    origin: '*',
+  })
+);
+
 const paymentRoute = require('./routes/paymentRoute');
 app.use('/payments', paymentRoute);
 

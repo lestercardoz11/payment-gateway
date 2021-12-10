@@ -9,34 +9,37 @@ var PaymentSchema = new Schema({
     lastName: {
       type: String,
     },
+    email: {
+      type: String,
+    },
+    phone: {
+      type: String,
+    },
   },
   address: {
-    line1: {
-      type: String,
-    },
-    line2: {
-      type: String,
-    },
-    city: {
-      type: String,
-    },
-    country: {
-      type: String,
-    },
-    postalCode: {
-      type: Number,
-    },
+    type: String,
   },
   card: {
+    name: {
+      type: String,
+    },
     number: {
       type: Number,
     },
     expiry: {
       type: String,
     },
+    securityCode: {
+      type: Number,
+    },
   },
   amount: {
-    type: String,
+    omr: {
+      type: String,
+    },
+    usd: {
+      type: String,
+    },
   },
 });
 
